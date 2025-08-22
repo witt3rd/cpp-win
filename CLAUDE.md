@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a Windows C++ application template project that provides a clean starting point for developing Windows desktop applications. It includes:
 
-- Modern C++20 standard support
+- Modern C++23 standard support (see `llm-docs\cpp\cpp_spec.md` for C++23 modern output guidelines)
 - Windows SDK integration for native Windows API programming
 - vcpkg package manager for dependencies
 - CMake build system with presets for x64 and ARM64
@@ -49,7 +49,7 @@ cmake --build --preset arm64-release
 
 - **Windows SDK**: Native Windows API programming
 - **Win32 API**: Direct Windows system calls for GUI and system interaction
-- **C++20**: Modern C++ features
+- **C++23**: Modern C++ features
 - **vcpkg**: Package management for C++ libraries
 - **CMake**: Cross-platform build system
 
@@ -96,10 +96,10 @@ while (GetMessage(&msg, NULL, 0, 0)) {
 
 ## Dependencies
 
-The project uses vcpkg for dependency management. Current dependencies:
+The project uses vcpkg for dependency management. Currently no external dependencies are required as the project uses C++23 standard library features including:
 
-- **fmt**: Modern formatting library
-- **spdlog**: Fast C++ logging library
+- **std::format**: Type-safe string formatting (C++20)
+- **std::print/std::println**: Direct formatted output (C++23)
 
 Additional libraries can be added to `vcpkg.json` as needed.
 

@@ -1,5 +1,7 @@
 #include <windows.h>
 #include <string>
+#include <print>
+#include <format>
 
 // Window procedure to handle messages
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -31,6 +33,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             switch (wmId)
             {
             case 1:  // OK button clicked
+                std::println("OK button clicked - Exiting application");
                 PostQuitMessage(0);
                 break;
             default:
@@ -67,6 +70,26 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
+    // Allocate a console for this GUI application to demonstrate C++23 output
+    if (AllocConsole())
+    {
+        // Redirect stdout to the console
+        FILE* pCout;
+        freopen_s(&pCout, "CONOUT$", "w", stdout);
+        
+        // Demonstrate C++23 std::print and std::println
+        std::println("Windows C++ Application Starting...");
+        std::println("Using C++23 modern output features!");
+        
+        int appVersion = 1;
+        std::string appName = "WinApp";
+        std::println("Application: {} v{}", appName, appVersion);
+        
+        // Format example
+        std::string formatted = std::format("Window will be created at {}:{}", "default position", "default size");
+        std::println("{}", formatted);
+    }
+    
     // Register the window class
     const wchar_t CLASS_NAME[] = L"Sample Window Class";
     
@@ -109,6 +132,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 
     ShowWindow(hwnd, nCmdShow);
     UpdateWindow(hwnd);
+    
+    std::println("Window created successfully - entering message loop");
 
     // Run the message loop
     MSG msg = { };

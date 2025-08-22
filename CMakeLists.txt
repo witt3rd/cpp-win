@@ -29,7 +29,7 @@ endif()
 
 project(winapp CXX)
 
-set(CMAKE_CXX_STANDARD 20)  # C++20 standard
+set(CMAKE_CXX_STANDARD 23)  # C++23 standard
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Generate compile_commands.json for clangd
@@ -45,9 +45,7 @@ add_compile_definitions(
     _UNICODE
 )
 
-# Find packages from vcpkg
-find_package(fmt CONFIG REQUIRED)
-find_package(spdlog CONFIG REQUIRED)
+# No external packages needed - using C++23 standard library
 
 # Main executable - Windows application (not console)
 add_executable(${PROJECT_NAME} WIN32
@@ -62,8 +60,6 @@ target_link_libraries(${PROJECT_NAME}
         kernel32.lib    # Windows Base APIs
         shell32.lib     # Windows Shell API
         comctl32.lib    # Common Controls
-        fmt::fmt        # fmt library for formatting
-        spdlog::spdlog  # spdlog for logging
 )
 
 # Enable proper exception handling

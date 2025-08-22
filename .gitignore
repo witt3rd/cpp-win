@@ -57,5 +57,3 @@ vcpkg_installed/
 
 # Debug information files
 *.dwo
-
-llm-docs/
