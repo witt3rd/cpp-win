@@ -1,0 +1,57 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "x64",
+      "displayName": "x64",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build",
+      "architecture": {
+        "value": "x64",
+        "strategy": "set"
+      },
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "x64-windows"
+      }
+    },
+    {
+      "name": "arm64",
+      "displayName": "ARM64",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build-arm64",
+      "architecture": {
+        "value": "ARM64",
+        "strategy": "set"
+      },
+      "cacheVariables": {
+        "VCPKG_TARGET_TRIPLET": "arm64-windows"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "x64-debug",
+      "displayName": "x64 Debug",
+      "configurePreset": "x64",
+      "configuration": "Debug"
+    },
+    {
+      "name": "x64-release",
+      "displayName": "x64 Release",
+      "configurePreset": "x64",
+      "configuration": "Release"
+    },
+    {
+      "name": "arm64-debug",
+      "displayName": "ARM64 Debug",
+      "configurePreset": "arm64",
+      "configuration": "Debug"
+    },
+    {
+      "name": "arm64-release",
+      "displayName": "ARM64 Release",
+      "configurePreset": "arm64",
+      "configuration": "Release"
+    }
+  ]
+}

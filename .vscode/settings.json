@@ -1,0 +1,46 @@
+{
+  // CMake Tools configuration
+  "cmake.configureOnOpen": false,
+  "cmake.useCMakePresets": "always",
+  "cmake.defaultConfigurePreset": "x64",
+  "cmake.defaultBuildPreset": "x64-release",
+  "cmake.launchBehavior": "reuseTerminal",
+  "cmake.buildBeforeRun": true,
+  "cmake.options.statusBarVisibility": "hidden",
+
+  // vcpkg toolchain configuration - workaround for CMake Tools bug with env var expansion
+  "cmake.configureSettings": {
+    "CMAKE_TOOLCHAIN_FILE": "${env:VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+  },
+
+  // Enable Microsoft C++ IntelliSense
+  "C_Cpp.intelliSenseEngine": "default",
+
+  // Configure IntelliSense for C++23
+  "C_Cpp.default.cppStandard": "c++23",
+  "C_Cpp.default.cStandard": "c17",
+
+  // Include paths for IntelliSense
+  "C_Cpp.default.includePath": [
+    "${workspaceFolder}/**",
+    "${workspaceFolder}/build/vcpkg_installed/x64-windows/include",
+    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/cppwinrt"
+  ],
+
+  // Defines for Windows development
+  "C_Cpp.default.defines": [
+    "_DEBUG",
+    "UNICODE",
+    "_UNICODE",
+    "WIN32",
+    "_WINDOWS",
+    "WINRT_LEAN_AND_MEAN"
+  ],
+
+  // IntelliSense mode for MSVC
+  "C_Cpp.default.intelliSenseMode": "windows-msvc-x64",
+
+  // Disable clangd
+  "clangd.enable": false,
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+}

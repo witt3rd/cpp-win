@@ -1,0 +1,9 @@
+{
+  "name": "winapp-template",
+  "version": "1.0.0",
+  "description": "Windows C++ Application Template",
+  "dependencies": [
+    "fmt",
+    "spdlog"
+  ]
+}
