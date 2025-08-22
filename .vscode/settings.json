@@ -36,10 +36,11 @@
     "WINRT_LEAN_AND_MEAN"
   ],
 
-  // IntelliSense mode for MSVC
-  "C_Cpp.default.intelliSenseMode": "windows-msvc-x64",
-
-  // Disable clangd
-  "clangd.enable": false,
-  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "files.associations": {
+    "*.dbclient-js": "javascript",
+    "*.css": "tailwindcss",
+    "*.md": "markdown",
+    "print": "cpp"
+  }
 }
