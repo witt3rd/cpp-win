@@ -2,8 +2,6 @@
   // CMake Tools configuration
   "cmake.configureOnOpen": false,
   "cmake.useCMakePresets": "always",
-  "cmake.defaultConfigurePreset": "x64",
-  "cmake.defaultBuildPreset": "x64-release",
   "cmake.launchBehavior": "reuseTerminal",
   "cmake.buildBeforeRun": true,
   "cmake.options.statusBarVisibility": "hidden",
@@ -24,7 +22,7 @@
   "C_Cpp.default.includePath": [
     "${workspaceFolder}/**",
     "${workspaceFolder}/build/vcpkg_installed/x64-windows/include",
-    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/cppwinrt"
+    "${env:WindowsSdkDir}/Include/*/cppwinrt"
   ],
 
   // Defines for Windows development
@@ -34,6 +32,7 @@
     "_UNICODE",
     "WIN32",
     "_WINDOWS",
+    "WIN32_LEAN_AND_MEAN",
     "WINRT_LEAN_AND_MEAN"
   ],
 
